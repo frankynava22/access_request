@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>ECISD Skyward Request Form</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script>
+      function validateForm() {
+        // Get the checkbox inputs
+        const checkboxes = document.getElementsByName('accessRequested');
+        let checkedCount = 0;
+        for (let i = 0; i < checkboxes.length; i++) {
+          if (checkboxes[i].checked) {
+            checkedCount++;
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>ECISD Skyward Request Form</h1>
+      <form action="/skyward" method="post">
+        <div>
+          <label for="date">Date:</label>
+          <input type="date" id="date" name="head_date" required>
+        </div>
+        <div>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="head_name" required>
+        </div>
+        <div>
+          <label for="signature">Signature:</label>
+          <input type="text" id="signature" name="head_signature" required>
+        </div>
+        <div>
+          <label for="campusDept">Campus/Department:</label>
+          <input type="text" id="campusDept" name="head_campus_department" required>
+        </div>
+        <div>
+          <label for="campusDeptNo">Campus/Dept. No.:</label>
+          <input type="text" id="campusDeptNo" name="head_campus_dept_num" required>
+        </div>
+        <div>
+          <label for="firstName">First Name:</label>
+          <input type="text" id="firstName" name="firstName" required>
+        </div>
+        <div>
+          <label for="middleInitial">Middle Initial:</label>
+          <input type="text" id="middleInitial" name="middleInitial" maxlength="1" required>
+        </div>
+        <div>
+          <label for="lastName">Last Name:</label>
+          <input type="text" id="lastName" name="lastName" required>
+        </div>
+        <div>
+          <label for="userId">User ID:</label>
+          <input type="text" id="userId" name="userId" required>
+        </div>
+        <div>
+          <p>Select Access Requested:</p>
+          <input type="checkbox" id="assistancePrincipalAttendance" name="accessRequested[]" value="Assistance Principal - Attendance">
+          <label for="assistancePrincipalAttendance">Assistance Principal - Attendance</label><br>
+          <input type="checkbox" id="assistancePrincipalMasterScheduler" name="accessRequested[]" value="Assistance Principal - Master Scheduler">
+          <label for="assistancePrincipalMasterScheduler">Assistance Principal - Master Scheduler</label><br>
+          <input type="checkbox" id="assistancePrincipalDiscipline" name="accessRequested[]" value="Assistance Principal - Discipline">
+          <label for="assistancePrincipalDiscipline">Assistance Principal - Discipline</label><br>
+          <input type="checkbox" id="attendanceClerk" name="accessRequested[]" value="Attendance Clerk">
+          <label for="attendanceClerk">Attendance Clerk</label><br>
+          <input type="checkbox" id="bilingualEducationDepartment" name="accessRequested[]" value="Bilingual Education Department">
+          <label for="bilingualEducationDepartment">Bilingual Education Department</label><br>
+          <input type="checkbox" id="counselor" name="accessRequested[]" value="Counselor">
+          <label for="counselor">Counselor</label><br>
+          <input type="checkbox" id="counselorSecondary" name="accessRequested[]" value="Counselor - Secondary">
+          <label for="counselorSecondary">Counselor - Secondary</label><br>
+          <input type="checkbox" id="counselorElementary" name="accessRequested[]" value="Counselor - Elementary">
+          <label for="counselorElementary">Counselor - Elementary</label><br>
+          <input type="checkbox" id="diagnostician" name="accessRequested[]" value="Diagnostician">
+          <label for="diagnostician">Diagnostician</label><br>
+          <input type="checkbox" id="deanOfInstruction" name="accessRequested[]" value="Dean of Instruction">
+          <label for="deanOfInstruction">Dean of Instruction</label><br>
+          <input type="checkbox" id="migrantClerk" name="accessRequested[]" value="Migrant Clerk">
+          <label for="migrantClerk">Migrant Clerk</label><br>
+          <input type="checkbox" id="migrantDepartment" name="accessRequested[]" value="Migrant Department">
+          <label for="migrantDepartment">Migrant Department</label><br>
+          <input type="checkbox" id="nurse" name="accessRequested[]" value="Nurse">
+          <label for="nurse">Nurse</label><br>
+          <input type="checkbox" id="peimsClerkElementary" name="accessRequested[]" value="PEIMS Clerk - Elementary">
+          <label for="peimsClerkElementary">PEIMS Clerk - Elementary</label><br>
+          <input type="checkbox" id="peimsClerkSecondary" name="accessRequested[]" value="PEIMS Clerk - Secondary">
+          <label for="peimsClerkSecondary">PEIMS Clerk - Secondary</label><br>
+          <input type="checkbox" id="principal" name="accessRequested[]" value="Principal">
+          <label for="principal">Principal</label><br>
+          <input type="checkbox" id="registrarMiddleSchool" name="accessRequested[]" value="Registrar - Middle School">
+          <label for="registrarMiddleSchool">Registrar - Middle School</label><br>
+          <input type="checkbox" id="registrarHighSchool" name="accessRequested[]" value="Registrar - High School">
+          <label for="registrarHighSchool">Registrar - High School</label><br>
+          <input type="checkbox" id="secretaryElementary" name="accessRequested[]" value="Secretary - Elementary">
+          <label for="secretaryElementary">Secretary - Elementary</label><br>
+          <input type="checkbox" id="section504Campus" name="accessRequested[]" value="Section 504 - Campus">
+          <label for="section504Campus">Section 504 - Campus</label><br>
+          <input type="checkbox" id="specialEducationDepartment" name="accessRequested[]" value="Special Education Department">
+          <label for="specialEducationDepartment">Special Education Department</label><br>
+          <input type="checkbox" id="summerSchool" name="accessRequested[]" value="Summer School">
+          <label for="summerSchool">Summer School</label><br>
+          <input type="checkbox" id="teacherGradebook" name="accessRequested[]" value="Teacher Gradebook">
+          <label for="teacherGradebook">Teacher Gradebook</label><br>
+          <input type="checkbox" id="viewOnlyAccess" name="accessRequested[]" value="View only Access">
+          <label for="viewOnlyAccess">View only Access</label><br>
+
+
+          <input type="checkbox" id="other" name="accessRequested[]" onclick="toggleOtherInput()">
+          <label for="other">Other</label>
+
+          <span>
+              <input type="text" id="otherInput" name="otherAccessRequested" >
+          </span>
+
+          <label for="notes">Notes:</label>
+          <input type="text" id="notes" name="notes"><br><br>
+
+
+          <p>Additions:</p>
+          <div>
+            <input type="checkbox" id="additions" name="additions[]" value="Additions">
+            <label for="additions">Additions</label>
+            <input type="checkbox" id="deletions" name="deletions[]" value="Deletions">
+            <label for="deletions">Deletions</label>
+          </div>
+          <label for="justification">Justification for change requested:</label>
+          <input type="text" id="justification" name="justification">
+
+          <label for="screenIds">List Screen ID's:</label>
+          <input type="text" id="screenIds" name="screen_id">
+
+          <p>Approved:</p>
+          <div>
+            <input type="checkbox" id="yes" name="approved" value="Yes">
+            <label for="yes">Yes</label>
+            <input type="checkbox" id="no" name="approved" value="No">
+            <label for="no">No</label>
+          </div>
+          <label for="approvalSignature">Approval Signature:</label>
+          <input type="text" id="approvalSignature" name="approval_signature">
+
+          <label for="userIdAssigned">User ID Assigned:</label>
+          <input type="text" id="userIdAssigned" name="user_id_assigned">
+
+          <label for="completedSignature">Completed Signature:</label>
+          <input type="text" id="completedSignature" name="completed_signature">
+          <label for="officeDate">Date:</label>
+          <input type="date" id="officeDate" name="office_date">
+
+          <script>
+              function toggleOtherInput() {
+                  const otherInput = document.getElementById("otherInput");
+                  otherInput.style.display = (otherInput.style.display === "none") ? "none" : "inline";
+              }
+          </script>
+
+
+
+
+          <button type="submit" onclick="return validateForm()">Submit</button>
+
+
+
+        </div>
+          </form>
+      </div>
+
+  </body>
+</html>

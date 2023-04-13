@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Access Request Form - Request Status</title>
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Access Request Form - Request Status</h1>
+      <% if (dateSubmitted) { %>
+        <p>You submitted your application on <%= dateSubmitted.toLocaleDateString('en-US') %> and it has been processed.</p>
+      <% } else { %>
+        <p>You haven't submitted any application yet.</p>
+      <% } %>
+      <% if (processed) { %>
+        <p>The application has been processed successfully.</p>
+      <% } else { %>
+        <p>The application is still being processed.</p>
+      <% } %>
+      <form action="/" method="get">
+        <input type="submit" value="Back to Main Page">
+      </form>
+    </div>
+  </body>
+</html>
+
